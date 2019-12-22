@@ -1,0 +1,224 @@
+<nav class="nav-extended indigo darken-4">
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo HotHotel center"><i class="material-icons large">beach_access</i>Hot Hotel & Spa</a>
+    <ul class="right hide-on-med-and-down">
+
+      <li><a class="waves-effect waves-light btn-large grey" href="#Reserve">Reserve Now</a></li>
+
+      <a href="#" data-target="slide-out" class="sidenav-trigger">Overview</a>
+    </ul>
+
+  </div>
+  <div class="container">
+
+
+    <div class="nav-content">
+      <ul class="tabs tabs-transparent">
+        <li class="tab active"><a href="/home">Home</a></li>
+        <li class="tab"><a href="#Photos">Photos</a></li>
+        <li class="tab"><a href="/maps">Map</a></li>
+
+
+        {{!-- <li class="tab white-text"><a href="#test4"><i class="material-icons left large">local_phone</i>999-999-9999</a></li>
+        <li class="tab right white-text"><a href="#test5"><i class="material-icons left large">location_on</i>1111 Seattle Drive, Seattle WA 99999</a></li>
+           --}}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+<div class="parallax-container">
+  <div class="parallax"><img src="https://www.panpacificseattle.com/wp-content/uploads/2017/04/Balcony-Suite.jpg"></div>
+</div>
+<div class="section grey darken-3 white-text">
+  <div class="row container HomeText">
+    <h2 class="header">Are you ready to live your best life?</h2>
+    <div class="row">
+      <div class="col s6">
+        <p class="white-text">
+          <h4>TREAT YOURSELF. YOU KNOW YOU DESERVE IT</h4>
+        </p>
+      </div>
+      <div class="col s6">
+        <p class="white-text"><br>Soak up the vibrant scene in the Living Room Bar and get in the mix with our live
+          music and DJ series before heading to a memorable dinner at HotRestaurant. Our onsite 5 star experience.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="parallax-container">
+  <div class="parallax"><img
+      src="https://www.tripsavvy.com/thmb/r7pNK0SSk1tDwPFsRxfvtG-uPlg=/2048x1365/filters:no_upscale():max_bytes(150000):strip_icc()/edgewater-lobby-56aa619f5f9b58b7d005a32c.jpg">
+  </div>
+</div>
+<div class="section white text-blue">
+
+  <div class="row container">
+    <h2 class="header center" id="Photos">PHOTOS</h2>
+    <div class="carousel">
+      <a class="carousel-item" href="#one!"><img
+          src="https://globalgrasshopper.com/wp-content/uploads/2018/05/W-Hotel-Seattle-1000x667.jpg"></a>
+      <a class="carousel-item" href="#two!"><img
+          src="https://santorinidave.com/wp-content/uploads/2014/12/seattle-best-luxury-hotels-edgewater-seaview.jpg"></a>
+      <a class="carousel-item" href="#three!"><img src="https://www.edgewaterhotel.com/img/home/home_01.jpg"></a>
+      <a class="carousel-item" href="#four!"><img
+          src="https://globalgrasshopper.com/wp-content/uploads/2018/05/Inn-at-the-market-Seattle.jpg"></a>
+      <a class="carousel-item" href="#five!"><img
+          src="https://pix10.agoda.net/geo/city/3687/1_3687_02.jpg?s=1920x822"></a>
+    </div>
+    <form method="get" action="/rooms">
+      <div class="row" id="Reserve">
+        <h3>Let's get some dates</h3>
+        <div class="divider"></div>
+        <div class="col s3">
+          <label>Check-in Date</label>
+          <input type="text" class="datepicker" name="beginDate" id="BeginDate">
+        </div>
+
+        <div class="col s3">
+          <label>Check-Out Date</label>
+          <input type="text" class="datepicker" name="endDate" id="EndDate">
+        </div>
+
+
+        <div class="input-field col s3">
+          <select id="Adults">
+
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+          <label>Number of Adults</label>
+        </div>
+
+
+        <div class="col s3">
+
+
+          <button id="myBtn" class=" center btn waves-effect waves-light btn-large indigo darken-4" type="submit"
+            id="DatesEntered">Reserve A Room
+            <i class="material-icons right">check</i>
+          </button>
+    </form>
+  </div>
+
+
+
+</div>
+
+
+
+</div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+
+  $(document).ready(function () {
+    $('.parallax').parallax();
+  });
+
+  $(document).ready(function () {
+    $('.carousel').carousel();
+  });
+  $(document).ready(function () {
+    $('.scrollspy').scrollSpy();
+  });
+
+  $(document).ready(function () {
+    $('.datepicker').datepicker();
+  });
+
+  var datecheckarr = [];
+  var BeginDate;
+  var EndDate;
+  var diffIndays = 0;
+  var NumberofAdults = 0;
+
+
+  $('#DatesEntered').on('click', function () {
+
+    if ($('#EndDate').val() === "" || $('#BeginDate').val() === "" || $('#Adults').val() === "") {
+      // 'rounded' is the class I'm applying to the toast
+      M.toast({ html: 'Please complete first!', classes: 'rounded' });
+    }
+    else {
+
+      BeginDate = $("#BeginDate").val();
+      EndDate = $("#EndDate").val();
+      NumberofAdults = $("#Adults").val();
+      var BeginDateArr = BeginDate.split(/[\s,]+/);
+      var EndDateArr = EndDate.split(/[\s,]+/);
+      var CheckIn = moment().month(BeginDateArr[0]).date(parseInt(BeginDateArr[1])).year(parseInt(BeginDateArr[2]));
+      var CheckOut = moment().month(EndDateArr[0]).date(parseInt(EndDateArr[1])).year(parseInt(EndDateArr[2]));
+      var CheckInDate = CheckIn.format("DD/MM/YYYY");
+      var CheckOutDate = CheckOut.format("DD/MM/YYYY");
+
+
+
+      var CheckInUTC = CheckIn.format();
+      var CheckOutUTC = CheckOut.format();
+      //console.log(CheckInUTC);
+
+      var date1 = moment(CheckInUTC);
+      var date2 = moment(CheckOutUTC);
+      diffIndays = date2.diff(date1, 'days');
+
+
+      //console.log(date1);
+
+      console.log("--------------");
+      console.log(date1);
+      console.log(date2);
+      console.log("--------------");
+
+
+
+      for (var i = 0; i < diffIndays; i++) {
+        datecheckarr.push(moment(CheckInUTC).format("DD/MM/YYYY"));
+        CheckInUTC = moment(CheckInUTC).add(1, 'day');
+        //console.log(datecheckarr);
+      }
+
+      console.log(diffIndays);
+      console.log(datecheckarr);
+      console.log(BeginDate);
+      console.log(EndDate);
+      console.log(NumberofAdults);
+
+      // Creates local "temporary" object for holding reservation data
+      var newReservation = {
+        BeginningDate: BeginDate,
+        EndingDate: EndDate,
+        NumberofNights: diffIndays,
+        Adults: NumberofAdults,
+        ArrayOfDates: datecheckarr,
+        date1: date1,
+        date2: date2
+      }
+      // Uploads reservation data to the database
+      database.ref().push(newReservation);
+      // Logs everything to console
+      console.log(newReservation.BeginningDate);
+      console.log(newReservation.EndingDate);
+      console.log(newReservation.NumberofNights);
+      console.log(newReservation.Adults);
+      console.log(newReservation.ArrayOfDates);
+
+      localStorage.setItem('diffinDays', diffIndays);
+
+
+
+    };
+
+  });
+
+
+
+</script>

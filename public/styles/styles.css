@@ -1,0 +1,13 @@
+.list-group-item {
+  line-height: 2.5;
+}
+/* 
+.HotHotel{
+  font-family: cursive;
+} */
+
+.introText, .HomeText, .HotHotel{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+@import url('//fonts.googleapis.com/css?family=Oswald:400,700,300');

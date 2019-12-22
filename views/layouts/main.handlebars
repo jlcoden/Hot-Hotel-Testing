@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8">
+  {{!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"> --}}
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  {{!-- <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8"> --}}
+
+  {{!-- <link rel ="stylesheet" href ="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"> --}}
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+  <title>Home Page</title>
+
+</head>
+
+<body>
+  {{{body}}}
+
+
+  <!-- Moment.js Reference -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+  <!-- Firebase Core JavaScript Link -->
+  <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-app.js"></script>
+
+  <!-- Specific Firebase products we want -->
+  <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-database.js"></script>
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    var RBegDate;
+    var REndDate;
+    var RNumberofNights;
+    var RAdults;
+    var RDatesArray;
+
+    var datecheckarr = [];
+    var BeginDate;
+    var EndDate;
+    var diffIndays = 0;
+    var NumberofAdults = 0;
+
+    $(document).ready(function () {
+      $('select').formSelect();
+    });
+    //1. Initialize Firebase
+    //var config = {
+      //apiKey: "AIzaSyC3cE0HGujnBcGoAdvvuvGf8pXK54KJzAs",
+      //authDomain: "click-counter-9995c.firebaseapp.com",
+     // databaseURL: "https://click-counter-9995c.firebaseio.com",
+     // storageBucket: "click-counter-9995c.appspot.com"
+   // };
+
+  //  firebase.initializeApp(config);
+
+//    var database = firebase.database();
+
+//database.ref().on("child_added", function(childSnapshot, prevChildKey) {
+
+
+ //Everything is stored in a variable
+// RBegDate = childSnapshot.val().BeginningDate;
+ //REndDate = childSnapshot.val().EndingDate;
+ //RNumberofNights =  childSnapshot.val().NumberofNights;
+ //RAdults = childSnapshot.val().Adults;
+ ///RDatesArray = childSnapshot.val().ArrayofDates;
+
+//$(".stay").html("<h4> Stay Dates: " + RBegDate + " - " +  REndDate +  "</h4>");
+//$(".adults").html("<p> Number of  Adults: " + RAdults +  "</p>");
+//});
+
+  </script>
+</body>
+
+</html>

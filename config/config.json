@@ -1,0 +1,28 @@
+{
+  "development": {
+    "username": "root",
+    "password": "IcedMocha4",
+    "database": "hoteldb",
+    "host": "localhost",
+    "dialect": "mysql",
+    "define": {
+      "timestamps": false
+    },
+    "port": "3307"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "hoteldb",
+    "host": "localhost",
+    "dialect": "mysql",
+    "define": {
+      "timestamps": false
+    },
+    "logging": false
+  },
+  "production": {
+    "use_env_variable": "JAWSDB_URL",
+    "dialect": "mysql"
+  }
+}

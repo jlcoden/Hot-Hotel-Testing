@@ -1,0 +1,107 @@
+<nav class="nav-extended indigo darken-4">
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo HotHotel center"><i class="material-icons large">beach_access</i>Hot Hotel & Spa</a>
+    <ul class="right hide-on-med-and-down">
+    </ul>
+  </div>
+  <div class="nav-content">
+    <ul class="tabs tabs-transparent">
+      <li class="tab"><a href="/index">Home</a></li>
+
+      {{!-- <li class="tab white-text"><a href="#test4"><i class="material-icons left large">local_phone</i>999-999-9999</a></li>
+        <li class="tab right white-text"><a href="#test5"><i class="material-icons left large">location_on</i>1111 Seattle Drive, Seattle WA 99999</a></li>
+           --}}
+    </ul>
+  </div>
+</nav>
+
+
+<div class="parallax-container">
+  <div class="parallax"><img
+      src="https://cache.marriott.com/marriottassets/marriott/SINWH/sinwh-hotel-skyline-5848-hor-clsc.jpg?downsize=2880px:*"
+      height=250px;></div>
+</div>
+<div class="section black darken-3 white-text">
+  <div class="row container">
+    <h2 class="header">THANK YOU {{firstName}} {{lastName}}<i class="fa fa-check"></i></h2>
+    <div class="row">
+      <div class="col s6">
+        <p class="white-text">
+          <h4>YOUR RESERVATION OF {{ROOMTYPE}} IS NOW BOOKED!</h4>
+        </p>
+        <div class="container">
+          <div class="row mt-4">
+            <div class="col-md-4">
+              <div class="container">
+
+                <!-- Selected room will get dynamically populated in this view  -->
+                <div id="selected-room"></div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="parallax-container">
+      <div class="parallax"><img
+          src="https://cache.marriott.com/marriottassets/marriott/SINWH/sinwh-entrance-6811-hor-clsc.jpg?downsize=1000px:*">
+      </div>
+    </div>
+    <div class="section white text-blue">
+      <div class="row container">
+        <h2 class="header center" id="Photos">PHOTOS</h2>
+        <div class="carousel">
+          <a class="carousel-item" href="#one!"><img
+              src="https://globalgrasshopper.com/wp-content/uploads/2018/05/W-Hotel-Seattle-1000x667.jpg"></a>
+          <a class="carousel-item" href="#two!"><img
+              src="https://santorinidave.com/wp-content/uploads/2014/12/seattle-best-luxury-hotels-edgewater-seaview.jpg"></a>
+          <a class="carousel-item" href="#three!"><img src="https://www.edgewaterhotel.com/img/home/home_01.jpg"></a>
+          <a class="carousel-item" href="#four!"><img
+              src="https://globalgrasshopper.com/wp-content/uploads/2018/05/Inn-at-the-market-Seattle.jpg"></a>
+          <a class="carousel-item" href="#five!"><img
+              src="https://pix10.agoda.net/geo/city/3687/1_3687_02.jpg?s=1920x822"></a>
+        </div>
+      </div>
+    </div>
+
+
+    <footer class="page-footer indigo darken-4">
+      <div class="footer-copyright">
+        <div class="container">
+          © 2019 Copyright University of Washington Coding Bootcamp
+          <a class="grey-text text-lighten-4 right" href="https://github.com/rayhe921/Project-2">GitHub Repository</a>
+        </div>
+      </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/public/js/thankyou.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+
+      $(document).ready(function () {
+        $('.parallax').parallax();
+      });
+
+      $(document).ready(function () {
+        $('.carousel').carousel();
+      });
+      $(document).ready(function () {
+        $('.scrollspy').scrollSpy();
+      });
+
+      $(document).ready(function () {
+        $('.datepicker').datepicker();
+      });
+
+
+      $('#BeginDate').on('change', function () {
+
+        if ($('#EndDate').val() !== "") {
+          console.log($('#EndDate').val() - $('#BeginDate').val());
+        }
+
+
+      });
+    </script>

@@ -1,0 +1,129 @@
+<nav class="nav-extended indigo darken-4">
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo HotHotel center"><i class="material-icons large">beach_access</i>Hot Hotel &
+            Spa</a>
+        <ul class="right hide-on-med-and-down">
+
+            <li><a class="waves-effect waves-light btn-large grey">Reserve Now</a></li>
+        </ul>
+    </div>
+    <div class="container">
+
+
+        <div class="nav-content">
+            <ul class="tabs tabs-transparent">
+                <li class="tab active"><a href="/home">Home</a></li>
+                
+                {{!-- <li class="tab white-text"><a href="#test4"><i class="material-icons left large">local_phone</i>999-999-9999</a></li>
+        <li class="tab right white-text"><a href="#test5"><i class="material-icons left large">location_on</i>1111 Seattle Drive, Seattle WA 99999</a></li>
+           --}}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+<head>
+    <style>
+        /* Set the size of the div element that contains the map */
+
+        .container {
+            text-align: center;
+        }
+
+        #map {
+            height: 400px;
+            /* The height is 400 pixels */
+            width: 70%;
+            /* The width is the width of the web page */
+            display: inline-block
+        }
+
+        h1 {
+            text-align: center;
+            line-height: 1.5em;
+            color: black;
+            border-bottom: 2px solid #FF00FF;
+            zoom: 1;
+            font-family: W Sans New, Helevtica, Arial, sans-serif;
+            font-weight: 400;
+            text-transform: uppercase;
+
+        }
+
+
+        input[type=text] {
+            box-sizing: border-box;
+            padding: .9rem 3rem .9rem 1.25rem;
+            width: 20%;
+            border: .0625rem solid #d2d2d2;
+            border-radius: .25rem;
+
+        }
+
+        input[type=submit] {
+            padding: 1rem 1.00rem;
+            line-height: 1.00rem;
+            font-size: 1.00rem;
+            font-family: proxima-nova, Helvetica, Arial, sans-serif;
+
+        }
+
+        h3 {
+            font-weight: 600;
+            font-size: 1.375rem;
+            font-family: proxima-nova, Helvetica, Arial, sans-serif;
+            line-height: 1.625rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Maps & Directions</h1>
+        <!--The div element for the map -->
+        <div id="map"></div>
+        <script>
+            // Initialize and add the map
+
+            var marker;
+
+            function initMap() {
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 16,
+                    center: { lat: 47.6073898, lng: -122.3358655 }
+
+                });
+
+                marker = new google.maps.Marker({
+                    map: map,
+                    draggable: true,
+                    animation: google.maps.Animation.DROP,
+                    position: { lat: 47.6073898, lng: -122.3358655 }
+                });
+                marker.addListener('click', toggleBounce);
+            }
+
+            function toggleBounce() {
+                if (marker.getAnimation() !== null) {
+                    marker.setAnimation(null);
+                } else {
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                }
+            }
+        </script>
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7ivLKWvviw3NkwrQXHGXebZpBwdExyes&callback=initMap">
+            </script>
+        <br>
+
+        <form action="http://maps.google.com/maps" method="get" target="_blank">
+            <label for="saddr">
+                <h3>Enter your current location</h3>
+            </label>
+            <input type="text" name="saddr" />
+            <input type="hidden" name="daddr" value="1112 4th Ave, Seattle, WA 98101" />
+            <input type="submit" value="Get directions" />
+        </form>
+    </div>
